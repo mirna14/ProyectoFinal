@@ -23,7 +23,9 @@ module.exports = {
     // of the project's static files
     path: path.resolve(__dirname, "public"),
     // 2.2 Output file name
-    filename: "bundle.js"
+    filename: "bundle.js",
+    //2.3
+    publicPath: '/'
 },
 // Adding a module to webpack
 module: {
