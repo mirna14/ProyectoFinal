@@ -1,8 +1,9 @@
 // importing Express library
-var express = require('express');
+import express from 'express';
 //creating a Router Instance 
-var router = express.Router();
+const { Router } = express;
 
+const router = Router();
 // creating the route
 router.get('/author', (req, res) =>{
     res.json ({
@@ -14,4 +15,4 @@ router.get('/author', (req, res) =>{
 });
 
 //exporting the router
-module.exports = router;
+export default router;
