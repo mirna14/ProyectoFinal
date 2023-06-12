@@ -5,6 +5,9 @@
 // Importing an file routing manager
 const path = require('path');
 
+// Importing plugin
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 // We export a configuration object
 // that will be used by webpack
 module.exports = {
@@ -22,19 +25,8 @@ module.exports = {
     // 2.2 Output file name
     filename: "bundle.js"
 },
-// 3. Configuring the development server
-// The development server serves the packaged files
-// to avoid having to repack on each code change.
-devServer: {
-  // 3.1 Static files folder
-  static: path.join(__dirname, "public"),
-  // 3.2 Development server port
-  port: 3000,
-  // 3.3 Defining the host
-  host: "0.0.0.0"
-},
- // Adding a module to webpack
- module: {
+// Adding a module to webpack
+module: {
   rules: [
     {
       test: /\.js$/,
@@ -49,7 +41,7 @@ devServer: {
                 {
                   'modules': false,
                   'useBuiltIns': 'usage',
-                  'targets': {"chrome": "80"},//'> 0.25%, not dead',
+                  'targets': {"chrome": "80"},
                   'corejs': 3
                 }
               ]
@@ -57,7 +49,15 @@ devServer: {
           }
         }
       ]
+    },
+    {
+      test: /\.css$/,
+      use: [MiniCssExtractPlugin.loader, 'css-loader']
     }
   ]
-}
+},
+plugins: [new MiniCssExtractPlugin({
+  // Archivo css de salida
+  filename: 'styles/app.css'
+})]
 }

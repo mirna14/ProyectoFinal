@@ -10,7 +10,8 @@
     "builds": "npm run clean && babel ./server --out-dir dist --copy-files",
     "buildc": "npm run cleanc && webpack --config ./webpack.config.js --mode production",
     "clean": "rm -rf ./dist",
-    "cleanc": "rm -f ./public/bundle.js"
+    "cleanc": "rm -f ./public/bundle.js ./public/styles/app.css"
+    
   },
   "dependencies": {
     "babel-preset-minify": "^0.5.2",
@@ -33,6 +34,8 @@
     "@babel/preset-env": "^7.22.5",
     "babel-loader": "^9.1.2",
     "babel-plugin-module-resolver": "^5.0.0",
-    "babel-watch": "^7.7.2"
+    "babel-watch": "^7.7.2",
+    "css-loader": "^6.8.1",
+    "mini-css-extract-plugin": "^2.7.6"
   }
 }
