@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "PORT=3000 APP_URL='http://localhost:' DEBUG=proyectofinal node ./server/bin/www",
+    "start": " npm run build && PORT=3000 APP_URL='http://localhost:' DEBUG=proyectofinal node ./dist/bin/www",
     "dev": "PORT=3000 APP_URL='http://localhost:' DEBUG=proyectofinal babel-watch --watch ./server/views ./server/bin/www",
     "clean": "rm -rf dist",
     "build": "npm run clean && babel ./server --out-dir dist --copy-files"
