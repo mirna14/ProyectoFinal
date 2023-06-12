@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./server/bin/www",
-    "dev": "babel-watch --watch ./server/views ./server/bin/www"
+    "start": "PORT=3000 APP_URL='http://localhost:' DEBUG=proyectofinal node ./server/bin/www",
+    "dev": "PORT=3000 APP_URL='http://localhost:' DEBUG=proyectofinal babel-watch --watch ./server/views ./server/bin/www",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && babel ./server --out-dir dist --copy-files"
   },
   "dependencies": {
+    "babel-preset-minify": "^0.5.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "^4.18.2",
@@ -17,9 +20,8 @@
   "devDependencies": {
     "@babel/cli": "^7.22.5",
     "@babel/core": "^7.22.5",
-    "@babel/node": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
-    "babel-watch": "^7.7.2",
-    "core-js": "^3.31.0"
+    "babel-plugin-module-resolver": "^5.0.0",
+    "babel-watch": "^7.7.2"
   }
 }
