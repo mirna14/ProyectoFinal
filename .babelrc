@@ -1,7 +1,6 @@
 {
     "presets": [
-     [
-        
+        [
             "minify",{
             "builtIns": false,
             "evaluate": false,
@@ -10,19 +9,21 @@
         ],
         [
          "@babel/preset-env",{
-        
+             // los targets son las plataformas
+             // donde se ejecutara los codigos final
              "targets": {"node" : "current" }
          }
      ]
+     
     ],
-"plugins": [
-    [
-      "module-resolver", {
-        "root": ["./"],
-        "alias": {
-          "@server" : "./server"
-        }
-      }
+    "plugins": [
+        [
+          "module-resolver", {
+            "root": ["./"],
+            "alias": {
+              "@server" : "./server"
+            }
+          }
+        ]
     ]
-]
  }

@@ -4,7 +4,6 @@
 
 // Importing an file routing manager
 const path = require('path');
-
 // Importing plugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -26,40 +25,43 @@ module.exports = {
     filename: "bundle.js",
     //2.3
     publicPath: '/'
-},
-// Adding a module to webpack
-module: {
-  rules: [
-    {
-      test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
-      use: [
-        {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                '@babel/preset-env',
-                {
-                  'modules': false,
-                  'useBuiltIns': 'usage',
-                  'targets': {"chrome": "80"},
-                  'corejs': 3
-                }
+  },
+  // Adding a module to webpack
+  module: {
+    rules: [
+      {
+				// This section stablishes 
+				// what rules to apply to ".js" files
+        test: /\.js$/,
+				// We Dont want to transpile any kind of modules
+        exclude: /(node_modules|bower_components)/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    'modules': false,
+                    'useBuiltIns': 'usage',
+                    'targets': {"chrome": "80"},
+                    'corejs': 3
+                  }
+                ]
               ]
-            ]
+            }
           }
-        }
-      ]
-    },
-    {
-      test: /\.css$/,
-      use: [MiniCssExtractPlugin.loader, 'css-loader']
-    }
-  ]
-},
-plugins: [new MiniCssExtractPlugin({
-  // Archivo css de salida
-  filename: 'styles/app.css'
-})]
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
+      }
+    ]
+  },
+  plugins: [new MiniCssExtractPlugin({
+    // Archivo css de salida
+    filename: 'styles/app.css'
+  })]
 }

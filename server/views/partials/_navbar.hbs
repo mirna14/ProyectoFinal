@@ -1,0 +1,91 @@
+<!-- Dropdow para menu "Projectos" -->
+<ul id="dropdownMenu" class="dropdown-content" >
+  <li>
+    <a href="/projects">
+      <i class="large material-icons" style="margin: 2px;">
+        list
+      </i>
+      Listar Usuarios
+    </a>
+  </li>
+  <li class="divider"></li>
+  <li>
+    <a href="/project/add">
+      <i class="large material-icons" style="margin: 2px;">
+        add_box
+      </i>
+      Registrar Usuario
+    </a>
+  </li>
+</ul>
+
+<!-- Dropdow para menu "Usuarios" -->
+<ul id="user-dropdown-menu" class="dropdown-content">
+  <li>
+    <a href="/user/login">
+      <i class="large material-icons" style="margin: 2px;">
+        login
+      </i>
+      Ingresar
+    </a>
+  </li>
+  <li class="divider"></li>
+    <li>
+    <a href="/user/register">
+      <i class="large material-icons" style="margin: 2px;">
+        person_add
+      </i>
+      Registrarse
+    </a>
+  </li>
+  <li>
+    <a href="/user/logout">
+      <i class="large material-icons" style="margin: 2px;">
+        logout
+      </i>
+      Cerrar sesion
+    </a>
+  </li>
+</ul>
+
+<!-- Inicia marcado de barra de navegación -->
+<nav class="dark blue darken-4">
+  <div class="container">
+    <div class="nav-wrapper">
+      <!-- Visulización de navegación en pantalla completa -->
+      <ul id="nav" class="right hide-on-med-and-down">
+        <li>
+          <a href="/">
+            <i class="large material-icons right">
+              home
+            </i>
+            Inicio
+          </a>
+        </li>
+        <li>
+          <a href="/about">
+            Convocatorias
+          </a>
+        </li>
+        <!-- Dropdown Trigger -->
+        <li>
+          <a class="dropdown-trigger" href="#!" data-target="dropdownMenu">
+            Postularte
+            <i class="material-icons right">
+              arrow_drop_down
+            </i>
+          </a>
+        </li>
+        <!-- User Dropdown -->
+        <li>
+          <a class="dropdown-trigger" href="#!" data-target="user-dropdown-menu">
+            Usuario
+            <i class="material-icons right">
+              people
+            </i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

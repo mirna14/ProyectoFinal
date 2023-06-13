@@ -4,7 +4,6 @@
 
 // Importing an file routing manager
 const path = require('path');
-
 // Importing Extract Plugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESlintPlugin = require("eslint-webpack-plugin");
@@ -36,43 +35,43 @@ module.exports = {
     port: 3000,
     // 3.3 Defining the host
     host: "0.0.0.0"
-},
-// Adding a module to webpack
-module: {
- rules: [
-   {
-     test: /\.js$/,
-     exclude: /(node_modules|bower_components)/,
-     use: [
-       {
-         loader: 'babel-loader',
-         options: {
-           presets: [
-             [
-               '@babel/preset-env',
-               {
-                 'modules': false,
-                 'useBuiltIns': 'usage',
-                 'targets': {"chrome": "80"},//'> 0.25%, not dead',
-                 'corejs': 3
-                }
-            ]
-          ]
-        }
+  },
+   // Adding a module to webpack
+   module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    'modules': false,
+                    'useBuiltIns': 'usage',
+                    'targets': {"chrome": "80"},//'> 0.25%, not dead',
+                    'corejs': 3
+                  }
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   },
-  {
-          test: /\.css$/,
-          use: [MiniCssExtractPlugin.loader, 'css-loader']
-       }
-     ]
-    },
-    plugins: [
-      new MiniCssExtractPlugin({
-      // Archivo css de salida
-      filename: 'styles/app.css'
-    }),
-    new ESlintPlugin({})
-  ]
-  }
+  plugins: [
+    new MiniCssExtractPlugin({
+    // Archivo css de salida
+    filename: 'styles/app.css'
+  }),
+  new ESlintPlugin({})
+]
+}
